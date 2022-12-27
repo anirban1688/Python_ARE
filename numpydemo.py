@@ -11,7 +11,7 @@ import datetime as dt
 import math
 
 
-# In[2]:
+# In[28]:
 
 
 A=np.array([[1,2,3],[4,5,6]])
@@ -21,10 +21,25 @@ Af=np.array([1,2,3],float)
 print(Af)
 
 
-# In[3]:
+# In[30]:
 
 
-np.arange(0,1,0.2)
+a = np.array(42)
+b = np.array([1, 2, 3, 4, 5])
+c = np.array([[1, 2, 3], [4, 5, 6]])
+d = np.array([[[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]]])
+
+print(a.ndim)
+print(b.ndim)
+print(c.ndim)
+print(d.ndim)
+print(d[0])
+
+
+# In[27]:
+
+
+print(np.arange(0,1,0.2))
 
 np.linspace(0,2*np.pi,10)
 
@@ -161,6 +176,61 @@ plt.plot(t,y)
 plt.xlabel('time')
 plt.ylabel('y(t)')
 plt.show()
+
+
+# In[39]:
+
+
+from scipy import misc
+import imageio
+f = misc.face()
+imageio.imsave('face.png', f) # uses the Image module (PIL)
+import matplotlib.pyplot as plt
+plt.imshow(f)
+plt.show()
+
+
+# In[38]:
+
+
+from PIL import Image as PImage
+im = PImage.open('C:/Users/ANIRBAN/Downloads/spm_3dprint.jpeg')
+plt.imshow(im)
+plt.show()
+
+
+# In[43]:
+
+
+f = misc.face(gray=True)
+plt.imshow(f, cmap=plt.cm.gray)
+
+
+# In[49]:
+
+
+img = np.mean(im, axis=2)
+plt.imshow(img)
+plt.show()
+
+
+# In[53]:
+
+
+from PIL import Image
+img2 = Image.open('C:/Users/ANIRBAN/Downloads/spm_3dprint.jpeg').convert('L')
+img2.save('pil-greyscale.png')
+plt.imshow(img2)
+plt.show()
+
+
+# In[74]:
+
+
+face = misc.face(gray=True)
+print(face)
+len(face)
+print(face[0])
 
 
 # In[ ]:
